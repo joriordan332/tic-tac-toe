@@ -10,7 +10,7 @@ const winningConditions = [
 ];
 
 const Gameboard = (() => {
-  let gameboard = ['A1','A2','A3','B1','B2','B3','C1','C2','C3'];
+  let gameboard = ['','','','','','','','',''];
   for (let i = 0; i < gameboard.length; i++) {
     const board = document.querySelector('.board');
     const boardSquares = document.createElement('div');
@@ -31,15 +31,22 @@ const Player  = (name, marker)=>{
 };
 
 const Game = (() => {
+  const startButton = document.getElementById('start');
+  const resetButton = document.getElementById('reset');
   let winningPlayer = document.getElementById('winningPlayer')
+  let firstPlayer = document.getElementById('player1Score');
+  let secondPlayer = document.getElementById('player2Score');
+  const boardSquares = [...document.querySelectorAll(".boardSquares")];
+  firstPlayer.textContent = '0'
+  secondPlayer.textContent = '0'
   const player1 = Player('Jonno', 'X');
   const player2 = Player('Abi', 'O');
   let currentPlayer = player1;
   
-  const boardSquares = document.querySelectorAll(".boardSquares");
+  
   boardSquares.forEach((square) => {
     square.addEventListener('click', () => {
-      let move = square.id;
+      
       if (square.innerHTML != ""&& winningPlayer.textContent == "") {
         alert('Please click on an empty square')
       }
@@ -50,16 +57,22 @@ const Game = (() => {
       }  if (square.innerHTML == "" && currentPlayer == player2 && winningPlayer.textContent == "") {
         square.innerHTML = player2.marker;
         currentPlayer = player1;
-      }  
-      if (checkWinOCell()) {
-         winningPlayer.textContent  = 'Jonno wins'
-      }
-      if (checkWinXCell()) {
-        winningPlayer.textContent  = 'Abi wins'
+      }  if (checkWinXCell() && winningPlayer.textContent == "") {
+        winningPlayer.innerHTML  = 'Jonno wins'
+        firstPlayer.innerHTML++;
+        
+        
+     }  if (checkWinOCell() && winningPlayer.textContent == "") {
+        winningPlayer.innerHTML  = 'Abi wins'
+        secondPlayer.innerHTML++;
+        
+      } if (isTieSquare() ) {
+        winningPlayer.innerHTML = `It's a tie!🤝`;
+        
       }
     })
   })
-  
+
   function checkWinXCell() {
     return winningConditions.some((combination) => {
       return combination.every((i) => {
@@ -77,7 +90,17 @@ const Game = (() => {
     });
   }
 
-  
+  function isTieSquare() {
+    return boardSquares.every((square) => {
+      return square.innerText === "X" || square.innerText === "O";
+    });
+  }
+  boardSquares.forEach((square) => {
+    resetButton.addEventListener('click', () => {
+      square.innerHTML = "";
+      winningPlayer.innerHTML = "";
+    })
+  })
 })();
 
 
