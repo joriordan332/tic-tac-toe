@@ -4,22 +4,45 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
-    <div id="winningPlayer"></div>
-    <div id="player1Score"></div>
-    <div id="player2Score"></div>
-    <button id="start">Start</button>
-    <button id="reset">Reset</button>
-    <div class="board">
-      
-
+    <div id="frontPage">
+      <h1>Tic Tac Toe</h1>
+      <button id="start" onclick="openForm()">Start</button>
     </div>
 
+    <div id="playerSelection">
+      <div class="player1">
+        <div>Player One</div>
+        <input id="playerOneInput" type="text" placeholder="Enter Name" required>
+      </div>
+      <div class="player2">
+        <div>Player Two</div>
+        <input id="playerTwoInput" type="text" placeholder="Enter Name" required>
+      </div>
+      <button id="submit" onclick="openMain()">Submit</button>
+    </div>
+
+    <div id="mainPage">
+      <h1>Tic Tac Toe</h1>
+      <div id="winningPlayer"></div>
+
+      <div>Player One</div>
+      <div id="playerOneName"></div>
+      <div id="player1Score"></div>
+
+      <div>Player Two</div>
+      <div id="playerTwoName"></div>
+      <div id="player2Score"></div>
+      <button id="reset">Reset</button>
+      <div class="board"></div>
+      <div id="playerTurn"></div>
+    </div>
+    
   </div>
 </body>
 </html>

@@ -8,3 +8,11 @@
     grid-template-columns: repeat(3, 150px);
     grid-template-rows: repeat(3, 150px);
 }
+
+#mainPage {
+    display: none;
+}
+
+#playerSelection {
+    display: none;
+}
