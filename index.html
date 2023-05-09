@@ -16,31 +16,45 @@
     </div>
 
     <div id="playerSelection">
+      <h1>Tic Tac Toe</h1>
       <div class="player1">
         <div>Player One</div>
         <input id="playerOneInput" type="text" placeholder="Enter Name" required>
       </div>
+
       <div class="player2">
         <div>Player Two</div>
         <input id="playerTwoInput" type="text" placeholder="Enter Name" required>
       </div>
-      <button id="submit" onclick="openMain()">Submit</button>
+
+      <input type="submit" value="Submit" id="submit" onclick="openMain()"></input>
     </div>
 
     <div id="mainPage">
-      <h1>Tic Tac Toe</h1>
-      <div id="winningPlayer"></div>
+      <div class="main">
+        <div class="firstPlayer">
+          <div>Player One</div>
+          <div id="playerOneName"></div>
+          <div id="player1Score"></div>
+        </div>
 
-      <div>Player One</div>
-      <div id="playerOneName"></div>
-      <div id="player1Score"></div>
+        <div class="main">
+          <h1>Tic Tac Toe</h1>
+          <div id="winningPlayer"></div>
+          <div class="board"></div>
+          <div id="playerTurn"></div>
+          <div class="resetButton">
+            <button class="reset" id="reset">Restart</button>
+          </div>
+        </div>
 
-      <div>Player Two</div>
-      <div id="playerTwoName"></div>
-      <div id="player2Score"></div>
-      <button id="reset">Reset</button>
-      <div class="board"></div>
-      <div id="playerTurn"></div>
+        <div class="secondPlayer">
+          <div>Player Two</div>
+          <div id="playerTwoName"></div>
+          <div id="player2Score"></div>
+        </div>
+      </div>
+      
     </div>
     
   </div>

@@ -1,5 +1,41 @@
+* {
+    font-family: "ARCADE";
+    text-align: center;
+  }
+
+  @font-face {
+    font-family: "ARCADE";
+    src: url(fonts/ARCADE);
+  }
+  
+  @font-face {
+    font-family: "ARCADE.REGULAR";
+    src: url(fonts/ARCADE.REGULAR);
+  }
+
+  @font-face {
+    font-family: "ARCADE.BOLD";
+    src: url(fonts/ARCADE.BOLD);
+  }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #39FF14; 
+    background-color: #03365f;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .boardSquares {
-    border: 1px solid black;
+    border: 1px solid #39FF14;
 }
 
 .board {
@@ -7,12 +43,91 @@
     grid-gap: 10px;
     grid-template-columns: repeat(3, 150px);
     grid-template-rows: repeat(3, 150px);
+    padding-bottom: 20px;
+}
+
+#frontPage {
+    position: relative;
+    align-items: center;
 }
 
 #mainPage {
     display: none;
 }
 
+.main {
+  display: grid;
+  grid-template-columns: repeat(3);
+}
+
 #playerSelection {
-    display: none;
+  display: none;
+  font-family: 'ARCADE.REGULAR';
+}
+
+.boardSquares{
+  font-family: "ARCADE.BOLD";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  font-weight: bold;
+  border-color: #39FF14; 
+}
+
+.firstPlayer {
+  grid-column: 1 / 2;
+  padding-right: 20%;
+  padding-top: 250px;
+}
+
+.main {
+  grid-column: 2 / 3;
+}
+
+.secondPlayer {
+  grid-column: 3 / 4;
+  padding-left: 20%;
+  padding-top: 250px;
+}
+
+#playerTurn {
+  padding-bottom: 20px;
+}
+
+button, #submit {
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.player1 {
+  padding-bottom: 20px;
+}
+
+.player2 {
+  padding-bottom: 20px;
+}
+
+.resetButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#winningPlayer {
+  padding-bottom: 20px;
+}
+
+#playerOneInput, #playerTwoInput {
+  outline: none;
+}
+
+#start, #submit, #reset {
+  border-color: #39FF14;
+  background-color: #03365f;
+  color: #39FF14;
+}
+
+h1 {
+  font-size: 40px;
 }

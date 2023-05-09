@@ -62,14 +62,14 @@ const Game = (() => {
       }  if (checkWinXCell() && winningPlayer.textContent == "") {
         winningPlayer.innerHTML  = `${playerOneName.innerHTML} wins`
         firstPlayer.innerHTML++;
-        
+        playerTurn.innerHTML = "";
      }  if (checkWinOCell() && winningPlayer.textContent == "") {
         winningPlayer.innerHTML  = `${playerTwoName.innerHTML} wins`
         secondPlayer.innerHTML++;
-        
+        playerTurn.innerHTML = "";
       } if (isTieSquare() ) {
         winningPlayer.innerHTML = `It's a tie!🤝`;
-        
+        playerTurn.innerHTML = "";
       }  
       
     })
@@ -103,6 +103,11 @@ const Game = (() => {
     resetButton.addEventListener('click', () => {
       square.innerHTML = "";
       winningPlayer.innerHTML = "";
+      if (currentPlayer == player1) {
+        playerTurn.innerHTML = `It's ${playerOneName.innerHTML} turn`;
+      } else if (currentPlayer == player2) {
+        playerTurn.innerHTML = `It's ${playerTwoName.innerHTML} turn`;
+      }
     })
   })
 
@@ -116,7 +121,7 @@ const Game = (() => {
     let playerTwoInput = document.getElementById('playerTwoInput').value;
     let playerTwoName = document.getElementById('playerTwoName');
     playerTwoName.innerHTML = `${playerTwoInput}`;
-    playerTurn.innerHTML = `It's ${playerOneName.innerHTML} turn`
+    playerTurn.innerHTML = `It's ${playerOneName.innerHTML}'s turn`
   })
 })();
 
