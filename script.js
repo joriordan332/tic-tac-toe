@@ -47,11 +47,11 @@ const Game = (() => {
       if (square.innerHTML === '' && currentPlayer === player1 && winningPlayer.textContent === '') {
         square.innerHTML = player1.marker;
         currentPlayer = player2;
-        playerTurn.innerHTML = `It's ${playerTwoName.innerHTML} turn`;
+        playerTurn.innerHTML = `It's ${playerTwoName.innerHTML}'s turn`;
       } if (square.innerHTML === '' && currentPlayer === player2 && winningPlayer.textContent === '') {
         square.innerHTML = player2.marker;
         currentPlayer = player1;
-        playerTurn.innerHTML = `It's ${playerOneName.innerHTML} turn`;
+        playerTurn.innerHTML = `It's ${playerOneName.innerHTML}'s turn`;
       } if (checkWinXCell() && winningPlayer.textContent === '') {
         winningPlayer.innerHTML = `${playerOneName.innerHTML} wins`;
         firstPlayer.innerHTML++;
@@ -84,9 +84,9 @@ const Game = (() => {
       square.innerHTML = '';
       winningPlayer.innerHTML = '';
       if (currentPlayer === player1) {
-        playerTurn.innerHTML = `It's ${playerOneName.innerHTML} turn`;
+        playerTurn.innerHTML = `It's ${playerOneName.innerHTML}'s turn`;
       } else if (currentPlayer === player2) {
-        playerTurn.innerHTML = `It's ${playerTwoName.innerHTML} turn`;
+        playerTurn.innerHTML = `It's ${playerTwoName.innerHTML}'s turn`;
       }
     });
   });
